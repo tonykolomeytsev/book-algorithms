@@ -18,3 +18,10 @@ fn insertion_sort_descending_test() {
     chapter_2::insertion_sort_descending(&mut actual);
     assert_eq!(actual, expected);
 }
+
+#[test]
+fn linear_search_test() {
+    let source = [59, 58, 41, 41, 31, 26];
+    let result = chapter_2::linear_search(41, &source);
+    assert_eq!(result.unwrap(), 2 as usize)
+}
