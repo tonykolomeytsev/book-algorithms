@@ -1,7 +1,12 @@
 mod chapter_1;
 mod chapter_2;
 
-fn main() {}
+fn main() {
+    let mut actual: Vec<i32> = vec![31, 41, 59, 26, 41, 58];
+    let expected: Vec<i32> = vec![26, 31, 41, 41, 58, 59];
+    chapter_2::merge_sort(&mut actual, 0, expected.len());
+    assert_eq!(actual, expected);
+}
 
 #[test]
 fn insertion_sort_test() {
@@ -40,5 +45,13 @@ fn selection_sort_test() {
     let mut actual: Vec<i32> = vec![31, 41, 59, 26, 41, 58];
     let expected: Vec<i32> = vec![26, 31, 41, 41, 58, 59];
     chapter_2::selection_sort(&mut actual);
+    assert_eq!(actual, expected);
+}
+
+#[test]
+fn merge_sort_test() {
+    let mut actual: Vec<i32> = vec![31, 41, 59, 26, 41, 58];
+    let expected: Vec<i32> = vec![26, 31, 41, 41, 58, 59];
+    chapter_2::merge_sort(&mut actual, 0, expected.len());
     assert_eq!(actual, expected);
 }

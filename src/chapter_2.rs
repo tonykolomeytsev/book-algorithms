@@ -55,3 +55,34 @@ pub fn selection_sort(arr: &mut Vec<i32>) {
         arr.swap(i, min_index);
     }
 }
+
+fn merge(a: &mut Vec<i32>, p: usize, q: usize, r: usize) {
+    let mut left = Box::new(a[p..q].to_vec());
+    left.push(i32::MAX);
+    let mut right = Box::new(a[q..r].to_vec());
+    right.push(i32::MAX);
+    let mut i = 0;
+    let mut j = 0;
+    println!("\t left: {:?}", left);
+    println!("\tright: {:?}", right);
+    for k in p..r {
+        if left[i] <= right[j] {
+            a[k] = left[i];
+            i += 1;
+        } else {
+            a[k] = right[j];
+            j += 1;
+        }
+    }
+}
+
+pub fn merge_sort(arr: &mut Vec<i32>, p: usize, r: usize) {
+    println!("sort: {:?}; p = {}, r = {}", arr, p, r);
+    if p < r {
+        let q = (p + r) / 2;
+        merge_sort(arr, p, q);
+        merge_sort(arr, q + 1, r);
+        merge(arr, p, q, r);
+    }
+    //panic!()
+}
