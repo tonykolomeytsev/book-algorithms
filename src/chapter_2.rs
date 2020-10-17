@@ -46,3 +46,12 @@ pub fn summarize_binary(a: &Vec<u8>, b: &Vec<u8>, c: &mut Vec<u8>) {
         if sum >= 2 { c[i + 1] = 1 }
     }
 }
+pub fn selection_sort(arr: &mut Vec<i32>) {
+    for i in 0..(arr.len() - 1) {
+        let mut min_index = i;
+        for j in (i + 1)..arr.len() {
+            if arr[j] < arr[min_index] { min_index =  j }
+        }
+        arr.swap(i, min_index);
+    }
+}

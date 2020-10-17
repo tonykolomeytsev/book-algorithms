@@ -34,3 +34,11 @@ fn summarize_binary_test() {
     chapter_2::summarize_binary(&a, &b, &mut c);
     assert_eq!(c, vec![1, 1, 0, 0, 0, 0, 1])
 }
+
+#[test]
+fn selection_sort_test() {
+    let mut actual: Vec<i32> = vec![31, 41, 59, 26, 41, 58];
+    let expected: Vec<i32> = vec![26, 31, 41, 41, 58, 59];
+    chapter_2::selection_sort(&mut actual);
+    assert_eq!(actual, expected);
+}
