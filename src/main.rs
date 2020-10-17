@@ -25,3 +25,12 @@ fn linear_search_test() {
     let result = chapter_2::linear_search(41, &source);
     assert_eq!(result.unwrap(), 2 as usize)
 }
+
+#[test]
+fn summarize_binary_test() {
+    let a: Vec<u8> = vec![1, 0, 0, 0, 1, 1];
+    let b: Vec<u8> = vec![0, 1, 0, 0, 1, 0];
+    let mut c: Vec<u8> = vec![0; 7];
+    chapter_2::summarize_binary(&a, &b, &mut c);
+    assert_eq!(c, vec![1, 1, 0, 0, 0, 0, 1])
+}

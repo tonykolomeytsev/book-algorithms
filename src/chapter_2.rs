@@ -35,3 +35,14 @@ pub fn linear_search(v: i32, arr: &[i32]) -> Option<usize> {
     }
     None
 } 
+
+pub fn summarize_binary(a: &Vec<u8>, b: &Vec<u8>, c: &mut Vec<u8>) {
+    let len = a.len();
+    assert_eq!(len, b.len());
+    assert_eq!(len + 1, c.len());
+    for i in 0..a.len() {
+        let sum = a[i] + b[i] + c[i];
+        c[i] = sum % 2;
+        if sum >= 2 { c[i + 1] = 1 }
+    }
+}
