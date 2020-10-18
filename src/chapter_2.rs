@@ -57,10 +57,8 @@ pub fn selection_sort(arr: &mut Vec<i32>) {
 }
 
 fn merge(a: &mut Vec<i32>, p: usize, q: usize, r: usize) {
-    let mut left = Box::new(a[p..q].to_vec());
-    left.push(i32::MAX);
-    let mut right = Box::new(a[q..r].to_vec());
-    right.push(i32::MAX);
+    let left = Box::new(a[p..q].to_vec());
+    let right = Box::new(a[q..r].to_vec());
     let mut i = 0;
     let mut j = 0;
     println!("\t left: {:?}", left);
